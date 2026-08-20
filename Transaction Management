@@ -1,0 +1,21 @@
+import java.util.HashMap;
+public class TransactionModule {
+    private HashMap<Integer, Double> balance = new HashMap<>();
+    public void deposit(int id, double amount) {
+        double current = balance.getOrDefault(id, 0.0);
+        balance.put(id, current + amount);
+        System.out.println("Deposit successful");
+    }
+    public void withdraw(int id, double amount) {
+        double current = balance.getOrDefault(id, 0.0);
+        if (amount <= current) {
+            balance.put(id, current - amount);
+            System.out.println("Withdrawal successful");
+        } else {
+            System.out.println("Insufficient balance");
+        }
+    }
+    public void checkBalance(int id) {
+        System.out.println("Balance: " + balance.getOrDefault(id, 0.0));
+    }
+}
