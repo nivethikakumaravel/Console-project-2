@@ -1,0 +1,20 @@
+import java.util.HashMap;
+public class CustomerModule {
+    private HashMap<Integer, String> customers = new HashMap<>();
+    public void addCustomer(int id, String name) {
+        customers.put(id, name);
+        System.out.println("Customer added successfully");
+    }
+    public void findCustomer(int id) {
+        if (customers.containsKey(id)) {
+            System.out.println("Customer: " + customers.get(id));
+        } else {
+            System.out.println("Customer not found");
+        }
+    }
+    public void displayCustomers() {
+        customers.forEach((id, name) ->
+            System.out.println(id + " : " + name)
+        );
+    }
+}
